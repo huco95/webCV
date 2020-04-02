@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  <main class="font-firago hyphens-manual bg-background">
+  <main class="transition-all duration-500 font-firago hyphens-manual bg-background">
 
     <!-- Page -->
     <div class="p-6 mx-auto page max-w-2xl print:max-w-letter md:max-w-letter md:h-letter xsm:p-8 sm:p-9 md:p-16">
@@ -32,6 +32,11 @@
         <h1 class="text-2xl font-semibold text-750">
           Félix Nogal Santamaría
         </h1>
+
+        <div class="text-2xl ml-auto cursor-pointer">
+          <span id="darkTheme">🌚</span>
+          <span id="lightTheme">🌞</span>
+        </div>
       </header>
       <!-- end Name -->
 
@@ -244,11 +249,7 @@
             <section class="mb-4 break-inside-avoid">
               <header>
                 <h3 class="text-lg font-semibold text-700 leading-snugish">
-                  <a href="https://github.com/WebPraktikos" class="group">
-                    PEGA Certified System Architect (CSA)
-                    <span
-                      class="inline-block text-550 print:text-black font-normal group-hover:text-700 transition duration-100 ease-in">↗</span>
-                  </a>
+                  PEGA Certified System Architect (CSA)
                 </h3>
                 <p class="leading-normal text-md text-650">
                   Desde 2018 | Pegasystems
@@ -259,11 +260,7 @@
             <section class="mb-4 break-inside-avoid">
               <header>
                 <h3 class="text-lg font-semibold text-700 leading-snugish">
-                  <a href="https://github.com/WebPraktikos" class="group">
-                    First Certificate in English (FCE)
-                    <span
-                      class="inline-block text-550 print:text-black font-normal group-hover:text-700 transition duration-100 ease-in">↗</span>
-                  </a>
+                  First Certificate in English (FCE)
                 </h3>
                 <p class="leading-normal text-md text-650">
                   Desde 2013 | Cambridge
@@ -296,7 +293,7 @@
           <div class="break-inside-avoid">
 
             <h2 class="mb-4 font-bold tracking-widest text-sm2 text-550 print:font-normal">
-              SKILLS
+              HABILIDADES
             </h2>
 
             <section class="mb-4 break-inside-avoid">
@@ -348,6 +345,9 @@
               </li>
               <li class="px-3 mr-1.5 mt-1.5 text-base text-750 print:bg-white print:border-inset bg-200">
                 Express
+              </li>
+              <li class="px-3 mr-1.5 mt-1.5 text-base text-750 print:bg-white print:border-inset bg-200">
+                Tailwind CSS
               </li>
             </ul>
           </section>
@@ -448,6 +448,39 @@
     <!-- end Page -->
   </main>
 
+  <script type="text/javascript">
+    function setDarkTheme() {
+      document.getElementsByTagName("body")[0].classList.remove("theme-light");
+      document.getElementsByTagName("body")[0].classList.add("theme-dark");
+      document.getElementById("lightTheme").classList.remove("hidden");
+      document.getElementById("darkTheme").classList.add("hidden");
+    }
+
+    function setLightTheme() {
+      document.getElementsByTagName("body")[0].classList.remove("theme-dark");
+      document.getElementsByTagName("body")[0].classList.add("theme-light");
+      document.getElementById("darkTheme").classList.remove("hidden");
+      document.getElementById("lightTheme").classList.add("hidden");
+    }
+
+    function initializeThemeSwitcher() {
+      document.getElementById("darkTheme").addEventListener("click", setDarkTheme);
+      document.getElementById("lightTheme").addEventListener("click", setLightTheme);
+
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // dark mode
+        document.getElementById("lightTheme").classList.remove("hidden");
+        document.getElementById("darkTheme").classList.add("hidden");
+      } else {
+        // light mode
+        document.getElementById("darkTheme").classList.remove("hidden");
+        document.getElementById("lightTheme").classList.add("hidden");
+      }
+    }
+    
+    document.addEventListener("DOMContentLoaded", initializeThemeSwitcher, false);
+  </script>
+  
 </body>
 
 </html>

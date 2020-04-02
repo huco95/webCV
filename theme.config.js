@@ -3,7 +3,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 const lightTheme = new Theme()
     .name('light')
-    .default()
+    .assignable()
     .colors({
           "background": "#ffffff",
           ...defaultTheme.colors.gray,
@@ -17,6 +17,9 @@ const lightTheme = new Theme()
 
 const darkTheme = new Theme()
     .name('dark')
+    .dark()
+    .default()
+    .assignable()
     .colors({
         "background": "#1f1f1f",
         ...defaultTheme.colors.gray,
@@ -30,6 +33,6 @@ const darkTheme = new Theme()
     });
 
 module.exports = new ThemeBuilder()
-  .asDataThemeAttribute()
-  .default(lightTheme)
-  .dark(darkTheme);
+    .asPrefixedClass("theme") // .theme-<themeName>
+    .default(lightTheme)
+    .theme(darkTheme);
