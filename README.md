@@ -26,7 +26,7 @@ cd universal-resume
 Install the dependencies:
 
 ```
-npm install
+npm install || yarn install
 ```
 
 Start the development server:

@@ -1,8 +1,8 @@
 {
-  "name": "universal-resume-template",
+  "name": "webCV",
   "version": "3.0.0",
-  "description": "Minimal and formal résumé (CV) website template for print, mobile, and desktop. https://bit.ly/2kEzgt8",
-  "author": "WebPraktikos <hi@webpraktikos.com>",
+  "description": "Minimal and formal CV website for print, mobile, and desktop.",
+  "author": "Felix",
   "scripts": {
     "serve": "concurrently \"postcss ./tailwind.css -o docs/build.css --watch\"  \"live-server ./docs \"",
     "build": "cross-env NODE_ENV=build postcss ./tailwind.css -o docs/build.css"
@@ -16,6 +16,7 @@
     "live-server": "^1.2.1",
     "postcss-cli": "^7.0.0",
     "postcss-import": "^12.0.1",
-    "tailwindcss": "^1.2.0"
+    "tailwindcss": "^1.2.0",
+    "tailwindcss-theming": "^2.4.3"
   }
 }

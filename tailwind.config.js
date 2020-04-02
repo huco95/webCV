@@ -1,5 +1,6 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const plugin = require("tailwindcss/plugin");
+const tailwind = require('tailwindcss/defaultTheme');
 
 module.exports = {
   theme: {
@@ -61,16 +62,16 @@ module.exports = {
         "7": "1.6rem",
         "11": "2.75rem",
       },
-      colors: {
-        gray: {
-          "250": "hsl(210, 40%, 93.5%)",
-          "550": "hsl(218, 20%, 63%)",
-          "650": "hsl(216, 15%, 48%)",
-          "750": "hsl(214, 17%, 32%)",
-          ...defaultTheme.colors.gray
-        },
-        link: "#fbf3f3"
-      },
+      // colors: {
+      //   gray: {
+      //     "250": "hsl(210, 40%, 93.5%)",
+      //     "550": "hsl(218, 20%, 63%)",
+      //     "650": "hsl(216, 15%, 48%)",
+      //     "750": "hsl(214, 17%, 32%)",
+      //     ...defaultTheme.colors.gray
+      //   },
+      //   link: "#fbf3f3"
+      // },
     },
   },
 
@@ -79,6 +80,7 @@ module.exports = {
   },
 
   plugins: [
+    require('./theme.config.js'),
     plugin(function ({ addBase, addUtilities, theme }) {
       addBase({
         "body": {
@@ -176,7 +178,7 @@ module.exports = {
 
       const projectSpecificUtils = {
         ".border-inset": {
-          "box-shadow": `inset 0 0 0 1px ${theme("colors.gray.400")}`,
+          "box-shadow": `inset 0 0 0 1px ${theme("colors.400")}`,
         }
       }
 
