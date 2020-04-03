@@ -1,6 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const plugin = require("tailwindcss/plugin");
-const tailwind = require('tailwindcss/defaultTheme');
 
 module.exports = {
   theme: {
